@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Mom ❤️</title>
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #ffe6e6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Envelope */
+.envelope {
+  width: 250px;
+  height: 150px;
+  background: red;
+  position: relative;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.flap {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 125px solid transparent;
+  border-right: 125px solid transparent;
+  border-bottom: 75px solid darkred;
+  top: -75px;
+  transition: 0.5s;
+}
+
+.letter {
+  position: absolute;
+  background: white;
+  width: 230px;
+  height: 130px;
+  top: 10px;
+  left: 10px;
+  padding: 10px;
+  box-sizing: border-box;
+  opacity: 0;
+  transition: 0.5s;
+  overflow-y: auto;
+  font-size: 14px;
+}
+
+.open .flap {
+  transform: rotateX(180deg);
+}
+
+.open .letter {
+  opacity: 1;
+}
+
+.next-btn {
+  margin-top: 20px;
+  display: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.open + .next-btn {
+  display: block;
+}
+</style>
+</head>
+<body>
+
+<div>
+  <div class="envelope" onclick="openEnvelope(this)">
+    <div class="flap"></div>
+    <div class="letter">
+      dear mom, this is from Ayanat. Thank you for taking care of me and looking out for me all these years. I hope u live a stress-free, wonderful, happy, long, fun, exciting, exploring, life! Know that even when we argue or are upset at each other, my love for you never changes. It always goes up! I love you forever mom. Happy 45th birthday.
+    </div>
+  </div>
+
+  <div class="next-btn" onclick="goNext()">
+    ➡️ Next
+  </div>
+</div>
+
+<script>
+function openEnvelope(el) {
+  el.classList.add("open");
+}
+
+function goNext() {
+  window.location.href = "celebrate.html";
+}
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday ❤️</title>
+<style>
+body {
+  margin: 0;
+  overflow: hidden;
+  background: pink;
+  text-align: center;
+  font-family: Arial;
+}
+
+h1 {
+  margin-top: 100px;
+  font-size: 60px;
+  color: white;
+}
+
+.heart {
+  font-size: 120px;
+  color: red;
+}
+
+/* Confetti */
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: red;
+  top: -10px;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+  }
+}
+</style>
+</head>
+<body>
+
+<h1>Happy Birthday!</h1>
+<div class="heart">❤️</div>
+
+<script>
+// Create confetti
+for (let i = 0; i < 100; i++) {
+  let confetti = document.createElement("div");
+  confetti.classList.add("confetti");
+  document.body.appendChild(confetti);
+
+  confetti.style.left = Math.random() * 100 + "vw";
+  confetti.style.animationDuration = (Math.random() * 3 + 2) + "s";
+  confetti.style.backgroundColor =
+    ["red", "yellow", "blue", "green", "purple"][Math.floor(Math.random()*5)];
+}
+</script>
+
+</body>
+</html>
